@@ -18,13 +18,13 @@ jobs:
           - 27017:27017
         image: mongo:8.0
         env:
-          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_USERNAME: gnaneshp
           MONGO_INITDB_ROOT_PASSWORD: secret_password
           MONGO_INITDB_DATABASE: sample_mflix
           
     runs-on: ubuntu-latest
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CONNECTION_PROTOCOL: gnaneshp
       MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: secret_password
