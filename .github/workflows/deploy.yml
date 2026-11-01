@@ -12,12 +12,19 @@ jobs:
     environment: testing
     container:
       image: node:26
+    services:
+      mongodb:
+        image: mongodb
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: secret_password
+          
     runs-on: ubuntu-latest
     env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-      MONGODB_CLUSTER_ADDRESS: cluster0.prxczwe.mongodb.net
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: mongodb
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: secret_password
       PORT: 8080
     steps:
       - name: Get Code
