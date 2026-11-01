@@ -10,20 +10,22 @@ env:
 jobs:
   test:
     environment: testing
-    container:
-      image: node:26
+    # container:
+    #   image: node:26
     services:
       mongodb:
+        ports:
+          - 27017:27017
         image: mongo:8.0
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: secret_password
-          PORT: 27017:27017
+          MONGO_INITDB_DATABASE: sample_mflix
           
     runs-on: ubuntu-latest
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb
+      MONGODB_CLUSTER_ADDRESS: http://127.0.0.1:27017
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: secret_password
       PORT: 8080
