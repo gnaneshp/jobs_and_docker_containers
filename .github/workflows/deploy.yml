@@ -11,7 +11,7 @@ jobs:
   test:
     environment: testing
     container:
-      image: node:26
+      image: node:22
     services:
       mongodb:
         # ports:
