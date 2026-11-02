@@ -14,8 +14,8 @@ jobs:
       image: node:26
     services:
       mongodb:
-        ports:
-          - 27017:27017
+        # ports:
+        #   - 27017:27017
         image: mongo:8.0
         env:
           MONGO_INITDB_ROOT_USERNAME: gnaneshp
